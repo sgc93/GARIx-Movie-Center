@@ -28,6 +28,13 @@ body {
 	background-color: var(--color-background-900);
 }
 
+.p__subtopic {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--color-text);
+	text-transform: capitalize;
+}
+
 /* **Header** */
 
 /* **Main** */

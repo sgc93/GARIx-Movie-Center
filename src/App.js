@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Header from "./components/Header";
-import Main from "./components/Main/Main";
-import SideBar from "./components/Sidebar";
+import Header from "./components/Header/Header";
+import SideBar from "./components/Sidebar/Sidebar";
 const tempMovieData = [
 	{
 		imdbID: "tt1375666",
@@ -54,7 +53,7 @@ export default function App() {
 	return (
 		<>
 			<Header movies={movies} />
-			<Main tempWatchedData={tempWatchedData} movies={movies} />
+			{/* <Main tempWatchedData={tempWatchedData} movies={movies} /> */}
 			<SideBar />
 		</>
 	);

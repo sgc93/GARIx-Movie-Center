@@ -1,21 +1,22 @@
 import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import logo from "../../assets/logo.jpg";
 import "./Header.css";
 
-function Logo() {
+function Logo({ isClosed }) {
 	return (
-		<div className="logo">
+		<div className={isClosed ? "hide" : "logo"}>
 			<img src={logo} alt="GARIx" />
 		</div>
 	);
 }
 
-function SearchBox() {
+function SearchBox({ isClosed }) {
 	const [query, setQuery] = useState("");
 	return (
 		<input
-			className="search__box"
+			className={isClosed ? "search__box-two" : "search__box"}
 			type="text"
 			placeholder="Search movies..."
 			value={query}
@@ -24,10 +25,28 @@ function SearchBox() {
 	);
 }
 
-function SearchIcon() {
+function CloseIcon({ isClosed, setIsClosed }) {
 	return (
-		<dvi className="search__icon">
-			<IoSearchSharp className="search__icon-svg" onClick={() => {}} />
+		<div className={isClosed ? "close__icon" : "hide"}>
+			<FaTimes
+				className="close__icon-svg"
+				onClick={() => {
+					setIsClosed((isClosed) => false);
+				}}
+			/>
+		</div>
+	);
+}
+
+function SearchIcon({ isClosed, setIsClosed }) {
+	return (
+		<dvi className={isClosed ? "hide" : "search__icon"}>
+			<IoSearchSharp
+				className="search__icon-svg"
+				onClick={() => {
+					setIsClosed((isClosed) => true);
+				}}
+			/>
 		</dvi>
 	);
 }
@@ -50,11 +69,14 @@ function Subscribe() {
 }
 
 function Header({ movies }) {
+	const [isClosed, setIsClosed] = useState(false);
+
 	return (
 		<nav className="nav-bar">
-			<Logo />
-			<SearchBox />
-			<SearchIcon />
+			<Logo isClosed={isClosed} />
+			<SearchBox isClosed={isClosed} />
+			<CloseIcon isClosed={isClosed} setIsClosed={setIsClosed} />
+			<SearchIcon isClosed={isClosed} setIsClosed={setIsClosed} />
 			{/* <Result movies={movies} /> */}
 			<Subscribe />
 		</nav>

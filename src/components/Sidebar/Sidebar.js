@@ -2,7 +2,7 @@ import "./Sidebar.css";
 
 function SideBar() {
 	return (
-		<div className="app__sidebar">
+		<div className="app__sidebar app__scrollbar-v">
 			<div className="app__sidebar-genre">
 				<p className="p__subtopic">Genre</p>
 				<div className="app__sidebar-links">
@@ -79,6 +79,7 @@ function SideBar() {
 					</a>
 				</div>
 			</div>
+			<div className="app__sidebar-divider">_________________________</div>
 			<div className="app__sidebar-copyright">
 				<p>SGC, 2023</p>
 			</div>

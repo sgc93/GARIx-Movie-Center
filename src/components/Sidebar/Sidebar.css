@@ -1,4 +1,6 @@
 .app__sidebar {
+	position: fixed;
+	top: 7.2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -6,9 +8,7 @@
 	background: var(--color-background-500);
 
 	height: calc(100vh - 75px);
-	width: 15vw;
-
-	/* overflow-y: scroll; */
+	width: 150px;
 }
 
 .app__sidebar-genre,
@@ -39,4 +39,17 @@
 
 .app__sidebar-links .link:hover {
 	color: var(--color-text);
+}
+
+.app__sidebar-divider {
+	margin: 2rem;
+}
+
+.app__sidebar-copyright p {
+	padding: 2rem;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: 600;
+	font-size: 1.6rem;
+
+	color: var(--color-text-dark);
 }

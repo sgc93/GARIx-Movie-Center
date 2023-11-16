@@ -57,7 +57,12 @@ body {
 	border-radius: 20px;
 }
 
-/* **Header** */
+/* hover */
+
+.hover:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 2.4rem 2.4rem rgba(0, 0, 0, 0.1);
+}
 
 /* **Main** */
 

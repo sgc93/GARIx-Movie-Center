@@ -28,11 +28,33 @@ body {
 	background-color: var(--color-background-900);
 }
 
+/* constants */
+
 .p__subtopic {
 	font-size: 2rem;
 	font-weight: 600;
 	color: var(--color-text);
 	text-transform: capitalize;
+}
+
+/* scrollbars */
+
+.app__scrollbar-v {
+	overflow: hidden;
+}
+
+.app__scrollbar-v::-webkit-scrollbar {
+	background-color: var(--color-background-500);
+	width: 12px;
+}
+
+.app__scrollbar-v:hover {
+	overflow-y: scroll;
+}
+
+.app__scrollbar-v::-webkit-scrollbar-thumb {
+	background-color: var(--color-background-100);
+	border-radius: 20px;
 }
 
 /* **Header** */

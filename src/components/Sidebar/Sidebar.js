@@ -1,13 +1,42 @@
+import { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 import { TbCategoryFilled } from "react-icons/tb";
+
 import "./Sidebar.css";
 
 function SideBar() {
+	const [isSmallScreen, setSmallScreen] = useState(false);
 	return (
 		<>
 			<div className="app__sidebar-icon hover">
-				<TbCategoryFilled className="app__sidebar-icon_svg" />
+				<TbCategoryFilled
+					className={
+						isSmallScreen
+							? "app__sidebar-icon_svg-small"
+							: "app__sidebar-icon_svg"
+					}
+					onClick={() => {
+						setSmallScreen((isSmallScreen) => !isSmallScreen);
+					}}
+				/>
+				<FaTimes
+					className={
+						isSmallScreen
+							? "app__sidebar-icon_svg"
+							: "app__sidebar-icon_svg-small"
+					}
+					onClick={() => {
+						setSmallScreen((isSmallScreen) => !isSmallScreen);
+					}}
+				/>
 			</div>
-			<div className="app__sidebar app__scrollbar-v">
+			<div
+				className={
+					isSmallScreen
+						? "app__small-sidebar app__scrollbar-v"
+						: "app__sidebar app__scrollbar-v"
+				}
+			>
 				<div className="app__sidebar-genre">
 					<p className="p__subtopic">Genre</p>
 					<div className="app__sidebar-links">

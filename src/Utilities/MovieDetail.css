@@ -92,6 +92,7 @@
 /* rating stars */
 
 .app__rating {
+	height: 25%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -128,4 +129,24 @@
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
+}
+
+.app__watch {
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.app__watch button {
+	background-color: var(--color-red);
+	border: none;
+	border-radius: 0.7rem;
+	outline: none;
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--color-text);
+	padding: 1rem 2rem;
 }

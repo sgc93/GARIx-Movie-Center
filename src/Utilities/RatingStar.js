@@ -47,6 +47,15 @@ function Star({ index, setRate, rate }) {
 	);
 }
 
+function WatchLater({ movie, rate }) {
+	return (
+		<div className="app__watch">
+			<p>You have rate this movie {rate} out of 10.</p>
+			<button className="hover">Watch Later</button>
+		</div>
+	);
+}
+
 function RatingStar({ movie, maxRating = 5 }) {
 	const [rate, setRate] = useState(0);
 	const [tempRate, setTempRate] = useState(0);
@@ -74,6 +83,8 @@ function RatingStar({ movie, maxRating = 5 }) {
 				)}
 				<p>{isHovered ? tempRate || "" : rate || ""}</p>
 			</div>
+
+			{rate ? <WatchLater movie={movie} rate={rate} /> : ""}
 		</div>
 	);
 }

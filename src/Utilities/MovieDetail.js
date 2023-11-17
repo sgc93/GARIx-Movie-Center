@@ -1,3 +1,6 @@
+import "./MovieDetail.css";
+import RatingStar from "./RatingStar";
+
 function MovieDetail({ movie, isDetailOpen, closeDetail }) {
 	return (
 		<div className="detail__box">
@@ -17,6 +20,7 @@ function MovieDetail({ movie, isDetailOpen, closeDetail }) {
 					<span>Alexander W.</span> |<span>Leonardo ZQ.</span> |
 					<span>Onala C.</span> |<span>Beyonce A.</span> |<span>Bbdc B.</span>
 				</p>
+				<RatingStar movie={movie} maxRating={10} />
 			</div>
 			<div className="close">
 				<p

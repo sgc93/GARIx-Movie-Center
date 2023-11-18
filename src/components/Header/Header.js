@@ -12,15 +12,14 @@ function Logo({ isClosed }) {
 	);
 }
 
-function SearchBox({ isClosed }) {
-	const [query, setQuery] = useState("");
+function SearchBox({ isClosed, query, onSearch }) {
 	return (
 		<input
 			className={isClosed ? "search__box-two" : "search__box"}
 			type="text"
 			placeholder="Search movies..."
 			value={query}
-			onChange={(e) => setQuery(e.target.value)}
+			onChange={(e) => onSearch(e.target.value)}
 		/>
 	);
 }
@@ -40,14 +39,14 @@ function CloseIcon({ isClosed, setIsClosed }) {
 
 function SearchIcon({ isClosed, setIsClosed }) {
 	return (
-		<dvi className={isClosed ? "hide" : "search__icon"}>
+		<div className={isClosed ? "hide" : "search__icon"}>
 			<IoSearchSharp
 				className="search__icon-svg"
 				onClick={() => {
 					setIsClosed((isClosed) => true);
 				}}
 			/>
-		</dvi>
+		</div>
 	);
 }
 
@@ -68,13 +67,13 @@ function Subscribe() {
 	);
 }
 
-function Header({ movies }) {
+function Header({ movies, query, onSearch }) {
 	const [isClosed, setIsClosed] = useState(false);
 
 	return (
 		<nav className="nav-bar">
 			<Logo isClosed={isClosed} />
-			<SearchBox isClosed={isClosed} />
+			<SearchBox isClosed={isClosed} onSearch={onSearch} query={query} />
 			<CloseIcon isClosed={isClosed} setIsClosed={setIsClosed} />
 			<SearchIcon isClosed={isClosed} setIsClosed={setIsClosed} />
 			{/* <Result movies={movies} /> */}

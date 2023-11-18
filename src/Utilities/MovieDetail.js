@@ -8,18 +8,17 @@ function MovieDetail({ movie, closeDetail }) {
 			<div className="about">
 				<h3 className="title">{movie.Title}</h3>
 				<p className="rate__release">
-					<span className="release">📅 {movie.Year}</span>
-					<span className="rating">⭐ {movie.rating}</span>
+					<span className="release">📅 {movie.Released}</span>
+					<span className="duration">
+						{movie.Type === "movie"
+							? `🍿 ${movie.Runtime}`
+							: `📺${movie.totalSeasons} Seasons`}
+					</span>
+					<span className="rating">⭐ {movie.imdbRating}</span>
 				</p>
-				<p className="story">
-					lorem dlfjsld ldjfsl fsdjfsldfjsd flfjsldjf lsdjfsdjf ljdf sdfj ldfjs
-					orem dlfjsld ldjfsl fsdjfsldfjsd flfjsldjf lsdjfsdjf ljdf sdfj ldfjs
-					orem dlfjsld ldjfsl fsdjfsldfjsd flfjsldjf lsdjfsdjf ljdf sdfj ldfjs
-				</p>
-				<p className="casts">
-					<span>Alexander W.</span> |<span>Leonardo ZQ.</span> |
-					<span>Onala C.</span> |<span>Beyonce A.</span> |<span>Bbdc B.</span>
-				</p>
+				<p className="story">{movie.Plot}</p>
+				<p className="genre">{movie.Genre}</p>
+				<p className="casts"> {movie.Actors}</p>
 				<RatingStar movie={movie} maxRating={10} />
 			</div>
 			<div className="close">

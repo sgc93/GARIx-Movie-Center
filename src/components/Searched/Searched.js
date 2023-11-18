@@ -20,7 +20,11 @@ function Searched({ movies, openDetail }) {
 						<ul className="list">
 							{movies?.map((movie) => (
 								<>
-									<MovieCard movie={movie} openDetail={openDetail} />
+									<MovieCard
+										key={movie.imdbID}
+										movie={movie}
+										openDetail={openDetail}
+									/>
 								</>
 							))}
 						</ul>

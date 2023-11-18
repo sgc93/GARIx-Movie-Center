@@ -51,10 +51,11 @@ const tempMovieData = [
 const KEY = "eaf312c3";
 
 export default function App() {
-	const [detailId, setDetailId] = useState("");
+	const [detailId, setDetailId] = useState("tt1375666");
+	const [movie, setMovie] = useState({});
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 	const [movies, setMovies] = useState(tempMovieData);
-	const [query, setQuery] = useState("Game of");
+	const [query, setQuery] = useState("Inception");
 
 	useEffect(
 		function () {
@@ -71,14 +72,21 @@ export default function App() {
 		[query]
 	);
 
-	let movie;
-	if (isDetailOpen) {
-		movies.forEach((data) => {
-			if (data.imdbID === detailId) {
-				movie = data;
+	useEffect(
+		function () {
+			async function fetchDetail() {
+				const response = await fetch(
+					`http://www.omdbapi.com/?apikey=${KEY}&i=${detailId}`
+				);
+				const data = await response.json();
+				setMovie((movie) => data);
+				console.log(data);
 			}
-		});
-	}
+
+			fetchDetail();
+		},
+		[detailId]
+	);
 
 	function onSearch(movieName) {
 		setQuery((query) => movieName);

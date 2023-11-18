@@ -10,14 +10,14 @@ function MovieCard({ movie, openDetail }) {
 				src={movie.Poster === "N/A" ? "./logo.png" : movie.Poster}
 				alt={`${movie.Title} poster`}
 			/>
-			<div>
+			<div className="list__movie-data">
 				<h3>{movie.Title}</h3>
-				<p>
+				<div>
 					<span>
 						{movie.Type === "movie" ? "🍿 Movie" : `📺 ${movie.Type}`}
 					</span>
 					<span>📅{movie.Year}</span>
-				</p>
+				</div>
 			</div>
 		</li>
 	);

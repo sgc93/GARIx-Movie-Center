@@ -1,14 +1,14 @@
 import "./MovieDetail.css";
 import RatingStar from "./RatingStar";
 
-function MovieDetail({ movie, isDetailOpen, closeDetail }) {
+function MovieDetail({ movie, closeDetail }) {
 	return (
 		<div className="detail__box">
-			<img src={movie.Poster} alt={`${movie.title} poster`} />
+			<img src={movie.Poster} alt={`${movie.Title} poster`} />
 			<div className="about">
-				<h3 className="title">{movie.title}</h3>
+				<h3 className="title">{movie.Title}</h3>
 				<p className="rate__release">
-					<span className="release">📅 {movie.year}</span>
+					<span className="release">📅 {movie.Year}</span>
 					<span className="rating">⭐ {movie.rating}</span>
 				</p>
 				<p className="story">

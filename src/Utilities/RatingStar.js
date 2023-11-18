@@ -63,7 +63,7 @@ function RatingStar({ movie, maxRating = 5 }) {
 
 	return (
 		<div className="app__rating">
-			<p>Rate : {movie.title} </p>
+			<p>Rate : {movie.Title} </p>
 			<div
 				className="app__rating-stars"
 				onMouseEnter={() => setIsHovered(true)}

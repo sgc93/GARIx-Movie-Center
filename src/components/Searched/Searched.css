@@ -39,15 +39,17 @@
 	display: flex;
 	font-size: 1.6rem;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	flex-wrap: wrap;
-	gap: 2.4rem;
+	gap: 5rem;
 
 	list-style: none;
 	padding: 1.5rem;
 }
 
 .list li {
+	width: 22%;
+	height: 500px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -61,6 +63,7 @@
 
 .list img {
 	width: 100%;
+	height: 80%;
 	border-top-right-radius: 0.7rem;
 	border-top-left-radius: 0.7rem;
 }
@@ -69,8 +72,7 @@
 	padding: 1.5rem 1.5rem 1.5rem 1.5rem;
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
+	gap: 3rem;
 }
 
 .list h3 {
@@ -80,5 +82,5 @@
 .list p {
 	display: flex;
 	align-items: center;
-	gap: 15rem;
+	justify-content: space-between;
 }

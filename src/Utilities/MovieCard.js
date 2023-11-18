@@ -1,17 +1,22 @@
 function MovieCard({ movie, openDetail }) {
 	return (
 		<li
-			key={movie.id}
+			key={movie.imdbID}
 			onClick={() => {
-				openDetail(movie.id);
+				openDetail(movie.imdbID);
 			}}
 		>
-			<img src={movie.Poster} alt={`${movie.title} poster`} />
+			<img
+				src={movie.Poster === "N/A" ? "./logo.png" : movie.Poster}
+				alt={`${movie.Title} poster`}
+			/>
 			<div>
-				<h3>{movie.title}</h3>
+				<h3>{movie.Title}</h3>
 				<p>
-					<span>⭐{movie.rating}</span>
-					<span>📅{movie.year}</span>
+					<span>
+						{movie.Type === "movie" ? "🍿 Movie" : `📺 ${movie.Type}`}
+					</span>
+					<span>📅{movie.Year}</span>
 				</p>
 			</div>
 		</li>

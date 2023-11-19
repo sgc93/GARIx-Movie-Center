@@ -5,7 +5,7 @@ import Trending from "./Trending";
 import Upcoming from "./Upcoming";
 function Home() {
 	return (
-		<div className="app__home">
+		<div className="app__home app__scrollbar-v">
 			<Playing />
 			<Trending />
 			<Top />

@@ -57,6 +57,7 @@ export default function App() {
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 	const [movies, setMovies] = useState([]);
 	const [query, setQuery] = useState("");
+	const [isDetailLoading, setIsDetailLoading] = useState(false);
 
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState("");
@@ -95,13 +96,14 @@ export default function App() {
 
 	useEffect(
 		function () {
+			setIsDetailLoading(true);
 			async function fetchDetail() {
 				const response = await fetch(
 					`http://www.omdbapi.com/?apikey=${KEY}&i=${detailId}`
 				);
 				const data = await response.json();
 				setMovie((movie) => data);
-				console.log(data);
+				setIsDetailLoading(false);
 			}
 
 			fetchDetail();
@@ -137,6 +139,7 @@ export default function App() {
 					movie={movie}
 					isDetailOpen={isDetailOpen}
 					closeDetail={closeDetail}
+					isDetailLoading={isDetailLoading}
 				/>
 			)}
 		</>

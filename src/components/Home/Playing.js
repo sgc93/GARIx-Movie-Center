@@ -1,4 +1,6 @@
 import avatar from "./avatar.jpg";
+import avenger from "./avengers.jpg";
+import black from "./blackp.jpg";
 const style = {
 	backgroundImage: `url(${avatar})`,
 	backgroundRepeat: "no-repeat",
@@ -30,16 +32,28 @@ function Playing() {
 			<div className="app__playing-movies">
 				<ul className="Playing__list">
 					<li>
-						<img src="../../assets/logo.jpg" alt="blackp" />
+						<img src={avatar} alt="blackp" />
 					</li>
 					<li>
-						<img src="./avengers.jpg" alt="avengers" />
+						<img src={avenger} alt="avengers" />
 					</li>
 					<li>
-						<img src="./avatar.jpg" alt="blackp" />
+						<img src={black} alt="black" />
 					</li>
 					<li>
-						<img src="./boy.png" alt="blackp" />
+						<img src={avenger} alt="blackp" />
+					</li>
+					<li>
+						<img src={avatar} alt="blackp" />
+					</li>
+					<li>
+						<img src={avenger} alt="avengers" />
+					</li>
+					<li>
+						<img src={black} alt="black" />
+					</li>
+					<li>
+						<img src={avenger} alt="blackp" />
 					</li>
 				</ul>
 			</div>

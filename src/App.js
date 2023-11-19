@@ -55,8 +55,8 @@ export default function App() {
 	const [detailId, setDetailId] = useState("tt1375666");
 	const [movie, setMovie] = useState({});
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
-	const [movies, setMovies] = useState(tempMovieData);
-	const [query, setQuery] = useState("Inception");
+	const [movies, setMovies] = useState([]);
+	const [query, setQuery] = useState("");
 
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState("");
@@ -82,6 +82,11 @@ export default function App() {
 				} finally {
 					setIsLoading(false);
 				}
+			}
+			if (query.length < 3) {
+				setIsLoading(false);
+				setError("");
+				return;
 			}
 			fetchMovies();
 		},

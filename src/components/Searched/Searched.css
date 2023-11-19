@@ -34,10 +34,10 @@
 
 .loader,
 .error {
-	align-self: center;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 20% 40%;
 }
 
 .loader h1 {

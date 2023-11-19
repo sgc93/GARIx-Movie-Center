@@ -32,6 +32,31 @@
 	z-index: 999;
 }
 
+.loader {
+	align-self: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loader h1 {
+	font-size: 3rem;
+	color: var(--color-primary);
+	text-transform: capitalize;
+	animation: loading linear infinite;
+	animation-duration: 1s;
+}
+
+@keyframes loading {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.5);
+	}
+}
+
 /* Movie Card */
 
 .list {
@@ -62,13 +87,13 @@
 
 .list li img {
 	width: 100%;
-	height: 80%;
+	height: 75%;
 	border-top-right-radius: 0.7rem;
 	border-top-left-radius: 0.7rem;
 }
 
 .list__movie-data {
-	height: 20%;
+	height: 25%;
 	padding: 1.5rem 1.5rem 1.5rem 1.5rem;
 	display: flex;
 	flex-direction: column;

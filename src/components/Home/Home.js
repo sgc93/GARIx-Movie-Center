@@ -3,12 +3,12 @@ import Playing from "./Playing";
 import Top from "./Top";
 import Trending from "./Trending";
 import Upcoming from "./Upcoming";
-function Home() {
+function Home({ movies }) {
 	return (
 		<div className="app__home app__scrollbar-v">
 			<Playing />
-			<Trending />
-			<Top />
+			<Trending movies={movies} />
+			<Top movies={movies} />
 			<Upcoming />
 		</div>
 	);

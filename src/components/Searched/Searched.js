@@ -27,7 +27,7 @@ function Searched({ movies, openDetail, isLoading, error }) {
 						<>
 							{isLoading && <Loading />}
 							{!isLoading && !error && (
-								<ul className="list">
+								<ul className="result__list list">
 									{movies?.map((movie) => (
 										<>
 											<MovieCard

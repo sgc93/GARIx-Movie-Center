@@ -64,11 +64,13 @@ export default function App() {
 
 	useEffect(
 		function () {
+			const controller = new AbortController();
 			setIsLoading(true);
 			async function fetchMovies() {
 				try {
 					const response = await fetch(
-						`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+						`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+						{ signal: controller.signal }
 					);
 					if (!response.ok) throw new Error("🛜You Have Lost Your Connection!");
 					const data = await response.json();
@@ -90,6 +92,10 @@ export default function App() {
 				return;
 			}
 			fetchMovies();
+
+			return () => {
+				controller.abort();
+			};
 		},
 		[query]
 	);

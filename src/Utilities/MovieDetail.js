@@ -9,8 +9,10 @@ function MovieDetail({ movie, closeDetail, isDetailLoading }) {
 		function () {
 			if (movie.Title) {
 				document.title = `GARIx | ${movie.Title}`;
-				return;
 			}
+			return () => {
+				document.title = "GARIx Movie Center";
+			};
 		},
 		[movie]
 	);

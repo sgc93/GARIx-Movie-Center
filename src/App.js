@@ -80,8 +80,11 @@ export default function App() {
 						setError((error) => "");
 					}
 					setMovies((movies) => data.Search);
+					setError("");
 				} catch (err) {
-					setError((error) => err.message);
+					if (err.name !== "AbortError") {
+						setError((error) => err.message);
+					}
 				} finally {
 					setIsLoading(false);
 				}

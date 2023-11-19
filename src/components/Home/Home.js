@@ -9,7 +9,7 @@ function Home({ movies }) {
 			<Playing />
 			<Trending movies={movies} />
 			<Top movies={movies} />
-			<Upcoming />
+			<Upcoming movies={movies} />
 		</div>
 	);
 }

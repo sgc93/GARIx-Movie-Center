@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieDetail from "./Utilities/MovieDetail";
 import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
 import Searched from "./components/Searched/Searched";
 import SideBar from "./components/Sidebar/Sidebar";
 const tempMovieData = [
@@ -137,19 +138,25 @@ export default function App() {
 		<>
 			<Header movies={movies} query={query} onSearch={onSearch} />
 			<SideBar />
-			<Searched
-				movies={movies}
-				openDetail={openDetail}
-				isLoading={isLoading}
-				error={error}
-			/>
-			{isDetailOpen && (
-				<MovieDetail
-					movie={movie}
-					isDetailOpen={isDetailOpen}
-					closeDetail={closeDetail}
-					isDetailLoading={isDetailLoading}
-				/>
+			{query ? (
+				<>
+					<Searched
+						movies={movies}
+						openDetail={openDetail}
+						isLoading={isLoading}
+						error={error}
+					/>
+					{isDetailOpen && (
+						<MovieDetail
+							movie={movie}
+							isDetailOpen={isDetailOpen}
+							closeDetail={closeDetail}
+							isDetailLoading={isDetailLoading}
+						/>
+					)}
+				</>
+			) : (
+				<Home />
 			)}
 		</>
 	);

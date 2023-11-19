@@ -132,19 +132,26 @@ button {
 	margin: 5rem 0rem;
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-start;
 	gap: 3rem;
 }
 
 .app__trending-list {
 	border-radius: 1rem;
 	display: flex;
-	align-items: center;
-	justify-content: flex-start;
+	white-space: nowrap;
 	gap: 2rem;
 
+	list-style: none;
+	padding: 1.5rem;
 	overflow-x: scroll;
 }
 
 .app__trending-list::-webkit-scrollbar {
 	display: none;
+}
+
+.app__trending-list li {
+	min-width: 293px;
+	max-width: 293px;
 }

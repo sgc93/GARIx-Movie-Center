@@ -3,7 +3,8 @@ import MovieCard from "../../Utilities/MovieCard";
 function Top({ movies }) {
 	return (
 		<div className="app__trending">
-			<ul className="app__trending-list">
+			<h1 className="app__trending-title">Top Rated Movies</h1>
+			<ul className="app__trending-list list">
 				{movies.map((movie) => (
 					<MovieCard movie={movie} />
 				))}

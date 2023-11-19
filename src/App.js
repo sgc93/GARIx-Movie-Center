@@ -111,6 +111,16 @@ export default function App() {
 		[detailId]
 	);
 
+	// useEffect(
+	// 	function () {
+	// 		if (movie.Title) {
+	// 			document.title = `GARIx | ${movie.title}`;
+	// 			return;
+	// 		}
+	// 	},
+	// 	[movie]
+	// );
+
 	function onSearch(movieName) {
 		setQuery((query) => movieName);
 	}

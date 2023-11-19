@@ -1,14 +1,7 @@
 import { useState } from "react";
+import Loading from "../../Utilities/Loading";
 import MovieCard from "../../Utilities/MovieCard";
 import "./Searched.css";
-
-function Loading() {
-	return (
-		<div className="loader">
-			<h1>LOADING ...</h1>
-		</div>
-	);
-}
 
 function Error({ error }) {
 	return (

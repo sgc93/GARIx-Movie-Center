@@ -2,14 +2,9 @@
 	position: fixed;
 	top: 7.2rem;
 	left: 150px;
+	height: 100vh;
 
 	width: 89%;
-	height: 250vh;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
 	margin: 1rem;
 }
 
@@ -84,4 +79,72 @@ button {
 	font-weight: 700;
 	color: var(--color-text);
 	padding: 1rem 2rem;
+}
+
+/* scrolling movie poster list */
+
+.app__playing-movies {
+	position: absolute;
+	right: 0;
+	top: 30vh;
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	border-top-left-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+	overflow-x: scroll;
+}
+
+.app__playing-movies::-webkit-scrollbar {
+	display: none;
+}
+
+.Playing__list {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.Playing__list li {
+	display: flex;
+	align-items: center;
+	background-color: var(--color-primary);
+	width: 150px;
+	height: 300px;
+	border-radius: 1rem;
+}
+
+.Playing__list li img {
+	border-radius: 1rem;
+	width: 100%;
+	height: 100%;
+	transition: 0.3s;
+}
+
+.Playing__list li img:hover {
+	opacity: 0.85;
+}
+
+/* trending */
+.app__trending {
+	margin: 5rem 0rem;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.app__trending-list {
+	border-radius: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 2rem;
+
+	overflow-x: scroll;
+}
+
+.app__trending-list::-webkit-scrollbar {
+	display: none;
 }

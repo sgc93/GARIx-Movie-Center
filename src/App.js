@@ -49,7 +49,7 @@ const tempMovieData = [
 ];
 
 const KEY = "eaf312c3";
-// const tmdbKey = "988ba0f866b64552dd0b251b74c2b78d";
+// const Key = "988ba0f866b64552dd0b251b74c2b78d";
 
 export default function App() {
 	const [detailId, setDetailId] = useState("tt1375666");
@@ -59,19 +59,30 @@ export default function App() {
 	const [query, setQuery] = useState("Inception");
 
 	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState("");
 
 	useEffect(
 		function () {
 			setIsLoading(true);
 			async function fetchMovies() {
-				const response = await fetch(
-					`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
-				);
-				const data = await response.json();
-				setMovies((movies) => data.Search);
-				setIsLoading(false);
+				try {
+					const response = await fetch(
+						`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+					);
+					if (!response.ok) throw new Error("🛜You Have Lost Your Connection!");
+					const data = await response.json();
+					if (data.Response === "False") {
+						throw new Error("⛔Movie Not Found!");
+					} else if (response.ok) {
+						setError((error) => "");
+					}
+					setMovies((movies) => data.Search);
+				} catch (err) {
+					setError((error) => err.message);
+				} finally {
+					setIsLoading(false);
+				}
 			}
-
 			fetchMovies();
 		},
 		[query]
@@ -110,7 +121,12 @@ export default function App() {
 		<>
 			<Header movies={movies} query={query} onSearch={onSearch} />
 			<SideBar />
-			<Searched movies={movies} openDetail={openDetail} isLoading={isLoading} />
+			<Searched
+				movies={movies}
+				openDetail={openDetail}
+				isLoading={isLoading}
+				error={error}
+			/>
 			{isDetailOpen && (
 				<MovieDetail
 					movie={movie}

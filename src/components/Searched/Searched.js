@@ -1,7 +1,6 @@
 import { useState } from "react";
-import "./Searched.css";
-
 import MovieCard from "../../Utilities/MovieCard";
+import "./Searched.css";
 
 function Loading() {
 	return (
@@ -11,7 +10,15 @@ function Loading() {
 	);
 }
 
-function Searched({ movies, openDetail, isLoading }) {
+function Error({ error }) {
+	return (
+		<div className="error">
+			<p>{error}</p>
+		</div>
+	);
+}
+
+function Searched({ movies, openDetail, isLoading, error }) {
 	const [isOpen1, setIsOpen1] = useState(true);
 	return (
 		<div>
@@ -23,23 +30,32 @@ function Searched({ movies, openDetail, isLoading }) {
 					>
 						-
 					</button>
-					{isOpen1 &&
-						(isLoading ? (
-							<Loading />
-						) : (
-							<ul className="list">
-								{movies?.map((movie) => (
-									<>
-										<MovieCard
-											key={movie.imdbID}
-											movie={movie}
-											openDetail={openDetail}
-											isLoading={isLoading}
-										/>
-									</>
-								))}
-							</ul>
-						))}
+					{isOpen1 && (
+						<>
+							{isLoading && <Loading />}
+							{!isLoading && !error && (
+								<ul className="list">
+									{movies?.map((movie) => (
+										<>
+											<MovieCard
+												key={movie.imdbID}
+												movie={movie}
+												openDetail={openDetail}
+												isLoading={isLoading}
+											/>
+										</>
+									))}
+								</ul>
+							)}
+							{error && <Error error={error} />}
+						</>
+					)}
+					{/* {isOpen1 &&
+						{ isLoading && <Loading />}
+					{!isLoading && !error & (
+							
+					)}
+					 */}
 				</div>
 			</div>
 		</div>

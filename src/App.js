@@ -49,6 +49,7 @@ const tempMovieData = [
 ];
 
 const KEY = "eaf312c3";
+// const tmdbKey = "988ba0f866b64552dd0b251b74c2b78d";
 
 export default function App() {
 	const [detailId, setDetailId] = useState("tt1375666");
@@ -57,14 +58,18 @@ export default function App() {
 	const [movies, setMovies] = useState(tempMovieData);
 	const [query, setQuery] = useState("Inception");
 
+	const [isLoading, setIsLoading] = useState(false);
+
 	useEffect(
 		function () {
+			setIsLoading(true);
 			async function fetchMovies() {
 				const response = await fetch(
 					`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
 				);
 				const data = await response.json();
 				setMovies((movies) => data.Search);
+				setIsLoading(false);
 			}
 
 			fetchMovies();
@@ -105,7 +110,7 @@ export default function App() {
 		<>
 			<Header movies={movies} query={query} onSearch={onSearch} />
 			<SideBar />
-			<Searched movies={movies} openDetail={openDetail} />
+			<Searched movies={movies} openDetail={openDetail} isLoading={isLoading} />
 			{isDetailOpen && (
 				<MovieDetail
 					movie={movie}

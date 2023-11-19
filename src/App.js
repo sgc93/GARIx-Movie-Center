@@ -160,7 +160,7 @@ export default function App() {
 					)}
 				</>
 			) : (
-				<Home />
+				<Home movies={tempMovieData} />
 			)}
 		</>
 	);

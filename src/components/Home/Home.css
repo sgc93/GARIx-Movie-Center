@@ -1,0 +1,11 @@
+.app__home {
+	position: fixed;
+	top: 7.2rem;
+	left: 150px;
+
+	background: var(--color-background-100);
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+}

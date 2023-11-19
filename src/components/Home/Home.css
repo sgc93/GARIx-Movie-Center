@@ -19,10 +19,11 @@
 	height: 70vh;
 
 	border-radius: 1rem;
-	background: var(--color-primary);
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	opacity: 0.3;
 }
 
 .app__playing-about {

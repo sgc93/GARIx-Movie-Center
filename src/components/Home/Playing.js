@@ -1,9 +1,15 @@
+import avatar from "./avatar.jpg";
+const style = {
+	backgroundImage: `url(${avatar})`,
+	backgroundRepeat: "no-repeat",
+	backgroundPosition: "center top",
+	backgroundSize: "100% 150%",
+};
+
 function Playing() {
 	return (
 		<div className="app__playing">
-			<div className="app__playing-bg">
-				<img src="blackp.jpg" alt="black panther" />
-			</div>
+			<div className="app__playing-bg" style={style}></div>
 			<div className="app__playing-about">
 				<h1 className="about__title">Black Panther</h1>
 				<div className="about__detail">

@@ -52,7 +52,7 @@ const KEY = "eaf312c3";
 // const Key = "988ba0f866b64552dd0b251b74c2b78d";
 
 export default function App() {
-	const [detailId, setDetailId] = useState("tt1375666");
+	const [detailId, setDetailId] = useState("");
 	const [movie, setMovie] = useState({});
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 	const [movies, setMovies] = useState([]);
@@ -110,16 +110,6 @@ export default function App() {
 		},
 		[detailId]
 	);
-
-	// useEffect(
-	// 	function () {
-	// 		if (movie.Title) {
-	// 			document.title = `GARIx | ${movie.title}`;
-	// 			return;
-	// 		}
-	// 	},
-	// 	[movie]
-	// );
 
 	function onSearch(movieName) {
 		setQuery((query) => movieName);

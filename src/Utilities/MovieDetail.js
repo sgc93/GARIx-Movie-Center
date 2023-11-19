@@ -2,7 +2,19 @@ import Loading from "./Loading";
 import "./MovieDetail.css";
 import RatingStar from "./RatingStar";
 
+import { useEffect } from "react";
+
 function MovieDetail({ movie, closeDetail, isDetailLoading }) {
+	useEffect(
+		function () {
+			if (movie.Title) {
+				document.title = `GARIx | ${movie.Title}`;
+				return;
+			}
+		},
+		[movie]
+	);
+
 	return (
 		<div className="detail__box">
 			{isDetailLoading ? (

@@ -108,6 +108,10 @@ export default function App() {
 		function () {
 			setIsDetailLoading(true);
 			async function fetchDetail() {
+				if (!detailId) {
+					setIsDetailLoading(false);
+					return;
+				}
 				const response = await fetch(
 					`http://www.omdbapi.com/?apikey=${KEY}&i=${detailId}`
 				);

@@ -89,9 +89,8 @@ function Playing() {
 										<span>⭐7.7</span>
 									</p>
 									<div className="genre">
-										{genres.map((genre) => (
-											<p key={genre.id}>{genre.name}</p>
-										))}
+										{genres &&
+											genres.map((genre) => <p key={genre.id}>{genre.name}</p>)}
 									</div>
 									<p className="plot">{selected.overview}</p>
 									<p className="tagline">

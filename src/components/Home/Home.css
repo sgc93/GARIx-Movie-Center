@@ -5,7 +5,8 @@
 	height: 100vh;
 
 	width: 89%;
-	margin: 1rem;
+	margin: 1rem 1rem 3rem 1rem;
+	padding-bottom: 5rem;
 }
 
 .app__playing-bg {
@@ -23,10 +24,10 @@
 
 .app__playing-about {
 	position: absolute;
-	top: 7rem;
+	top: 6rem;
 	left: 7rem;
 	width: 60%;
-	height: 50vh;
+	height: 55vh;
 
 	display: flex;
 	flex-direction: column;
@@ -64,9 +65,16 @@
 
 .plot {
 	width: 500px;
+	height: 150px;
 	font-size: 2rem;
 	font-weight: 400;
 	text-transform: capitalize;
+
+	overflow: auto;
+}
+
+.plot::-webkit-scrollbar {
+	display: none;
 }
 
 button {

@@ -8,11 +8,11 @@ const KEY = "988ba0f866b64552dd0b251b74c2b78d";
 function Trending({ movies, openDetail }) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState("");
-	const [top, setTop] = useState([]);
+	const [popular, setPopular] = useState([]);
 
 	useEffect(function () {
 		setIsLoading(true);
-		async function fetchTop() {
+		async function fetchPopular() {
 			try {
 				const response = await fetch(
 					`https://api.themoviedb.org/3/movie/popular?api_key=${KEY}`
@@ -22,7 +22,7 @@ function Trending({ movies, openDetail }) {
 					throw new Error("something went wrong");
 				}
 				const data = await response.json();
-				setTop((top) => data.results);
+				setPopular((popular) => data.results);
 			} catch (err) {
 				setError(err.message);
 			} finally {
@@ -30,7 +30,7 @@ function Trending({ movies, openDetail }) {
 			}
 		}
 
-		fetchTop();
+		fetchPopular();
 	}, []);
 
 	return (
@@ -41,7 +41,7 @@ function Trending({ movies, openDetail }) {
 			{!error && !isLoading && (
 				<>
 					<ul className="app__trending-list list">
-						{top.map((movie) => (
+						{popular.map((movie) => (
 							<MovieCard
 								movie={movie}
 								openDetail={openDetail}

@@ -11,7 +11,6 @@ function Playing() {
 	const [selected, setSelected] = useState({});
 	useEffect(function () {
 		setIsLoading(true);
-		// const controller = new AbortController();
 		async function fetchPlayings() {
 			try {
 				const response = await fetch(
@@ -22,13 +21,12 @@ function Playing() {
 					throw new Error("something went wrong");
 				}
 				const data = await response.json();
-				console.log(data);
+				setSelected(data.results[0]);
 				setPlaying((playing) => data.results);
 			} catch (err) {
 				setError(err.message);
 			} finally {
 				setIsLoading(false);
-				console.log();
 			}
 		}
 

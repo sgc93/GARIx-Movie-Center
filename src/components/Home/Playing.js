@@ -84,8 +84,8 @@ function Playing() {
 								<h1 className="about__title">{selected.title}</h1>
 								<div className="about__detail">
 									<p className="release__rate">
-										<span>{selected.release_date}</span>
-										<span>{selected.runtime} min</span>
+										<span>📆{selected.release_date}</span>
+										<span>⏱️{selected.runtime} min</span>
 										<span>⭐7.7</span>
 									</p>
 									<div className="genre">
@@ -94,7 +94,10 @@ function Playing() {
 										))}
 									</div>
 									<p className="plot">{selected.overview}</p>
-									<p className="actors">Abebe K, Alemu A, sheger M</p>
+									<p className="tagline">
+										<span>#</span>
+										{selected.tagline}
+									</p>
 								</div>
 								<button className="hover"> Watch Later</button>
 							</div>

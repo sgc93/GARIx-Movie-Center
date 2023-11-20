@@ -6,9 +6,12 @@ const KEY = "988ba0f866b64552dd0b251b74c2b78d";
 
 function Playing() {
 	const [isLoading, setIsLoading] = useState(false);
+	const [isSelectedLoading, setSelectionLoading] = useState(false);
 	const [error, setError] = useState("");
 	const [playing, setPlaying] = useState([]);
 	const [selected, setSelected] = useState({});
+	const { genres } = selected;
+	const [selectedId, setSelectedId] = useState("");
 	useEffect(function () {
 		setIsLoading(true);
 		async function fetchPlayings() {
@@ -21,7 +24,7 @@ function Playing() {
 					throw new Error("something went wrong");
 				}
 				const data = await response.json();
-				setSelected(data.results[0]);
+				setSelectedId(data.results[0].id);
 				setPlaying((playing) => data.results);
 			} catch (err) {
 				setError(err.message);
@@ -32,6 +35,31 @@ function Playing() {
 
 		fetchPlayings();
 	}, []);
+
+	useEffect(
+		function () {
+			setSelectionLoading(true);
+			async function fetchSelected() {
+				try {
+					const response = await fetch(
+						`https://api.themoviedb.org/3/movie/${selectedId}?api_key=${KEY}`
+					);
+					if (!response.ok) {
+						throw new Error("Something went wrong!");
+					}
+					const data = await response.json();
+					setSelected(data);
+					console.log(data);
+				} catch (err) {
+					setError(err.message);
+				} finally {
+					setSelectionLoading(false);
+				}
+			}
+			fetchSelected();
+		},
+		[selectedId]
+	);
 
 	const style = selected && {
 		backgroundImage: `url("https://image.tmdb.org/t/p/original/${selected.poster_path}")`,
@@ -46,7 +74,8 @@ function Playing() {
 			{isLoading && <Loading />}
 			{!isLoading && !error && (
 				<div className="app__playing">
-					{!selected ? (
+					{isSelectedLoading && <Loading />}
+					{!selected && !isSelectedLoading ? (
 						<Error error={"not selected"} />
 					) : (
 						<>
@@ -56,10 +85,14 @@ function Playing() {
 								<div className="about__detail">
 									<p className="release__rate">
 										<span>{selected.release_date}</span>
-										<span>🍿123 min</span>
+										<span>{selected.runtime} min</span>
 										<span>⭐7.7</span>
 									</p>
-									<p className="genre">scifi, adventure, mystery</p>
+									<div className="genre">
+										{genres.map((genre) => (
+											<p key={genre.id}>{genre.name}</p>
+										))}
+									</div>
 									<p className="plot">{selected.overview}</p>
 									<p className="actors">Abebe K, Alemu A, sheger M</p>
 								</div>
@@ -70,7 +103,7 @@ function Playing() {
 					<div className="app__playing-movies">
 						<ul className="Playing__list">
 							{playing.map((movie) => (
-								<Image movie={movie} setSelected={setSelected} />
+								<Image movie={movie} setSelectedId={setSelectedId} />
 							))}
 						</ul>
 					</div>
@@ -80,12 +113,12 @@ function Playing() {
 	);
 }
 
-function Image({ movie, setSelected }) {
+function Image({ movie, setSelectedId }) {
 	return (
-		<li onClick={() => setSelected((selected) => movie)}>
+		<li onClick={() => setSelectedId((selectedId) => movie.id)}>
 			<img
 				src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-				alt="blackp"
+				alt={`${movie.title} poster`}
 			/>
 		</li>
 	);

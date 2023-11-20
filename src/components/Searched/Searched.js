@@ -1,15 +1,8 @@
 import { useState } from "react";
+import Error from "../../Utilities/Error";
 import Loading from "../../Utilities/Loading";
 import MovieCard from "../../Utilities/MovieCard";
 import "./Searched.css";
-
-function Error({ error }) {
-	return (
-		<div className="error">
-			<p>{error}</p>
-		</div>
-	);
-}
 
 function Searched({ movies, openDetail, isLoading, error }) {
 	const [isOpen1, setIsOpen1] = useState(true);

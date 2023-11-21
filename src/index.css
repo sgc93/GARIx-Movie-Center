@@ -95,6 +95,11 @@ body {
 
 .list__movie-data h3 {
 	font-size: 1.8rem;
+	overflow: auto;
+}
+
+.list__movie-data h3::-webkit-scrollbar {
+	display: flex;
 }
 
 .list__movie-data div {

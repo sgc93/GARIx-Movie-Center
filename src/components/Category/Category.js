@@ -16,7 +16,7 @@ function Category({ genre, setGenre, openDetail }) {
 			async function fetchDetail() {
 				try {
 					const response = await fetch(
-						`https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&include_video=true&sort_by=popularity.desc&with_genres=${genre}'`
+						`https://api.themoviedb.org/3/discover/movie?api_key=${KEY}&include_video=true&sort_by=popularity.desc&with_genres=${genre}`
 					);
 					if (!response.ok) throw new Error("🛜You Have Lost Your Connection!");
 					const data = await response.json();

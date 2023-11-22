@@ -1,35 +1,22 @@
 import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { TbCategoryFilled } from "react-icons/tb";
-
+import genres from "../../constants/Genre";
 import "./Sidebar.css";
 
-const genres = [
-	{ id: 28, name: "Action" },
-	{ id: 12, name: "Adventure" },
-	{ id: 16, name: "Animation" },
-	{ id: 35, name: "Comedy" },
-	{ id: 80, name: "Crime" },
-	{ id: 99, name: "Documentary" },
-	{ id: 18, name: "Drama" },
-	{ id: 10751, name: "Family" },
-	{ id: 14, name: "Fantasy" },
-	{ id: 36, name: "History" },
-	{ id: 27, name: "Horror" },
-	{ id: 10402, name: "Music" },
-	{ id: 9648, name: "Mystery" },
-	{ id: 10749, name: "Romance" },
-	{ id: 878, name: "Science Fiction" },
-	{ id: 10770, name: "Tv Movie" },
-	{ id: 53, name: "Thriller" },
-	{ id: 10752, name: "War" },
-	{ id: 37, name: "Western" },
-];
 const KEY = "988ba0f866b64552dd0b251b74c2b78d";
 
-function GenreBox({ genre, setGenre }) {
+function GenreBox({ genre, isSelected, onSelect }) {
+	const handleClick = () => {
+		onSelect(genre.id);
+	};
+
 	return (
-		<a href="#Adventure" className="link" onClick={() => setGenre(genre.id)}>
+		<a
+			href={`#${genre.name}`}
+			className={isSelected ? "selected" : "link"}
+			onClick={handleClick}
+		>
 			{genre.name}
 		</a>
 	);
@@ -37,6 +24,12 @@ function GenreBox({ genre, setGenre }) {
 
 function SideBar({ setGenre }) {
 	const [isSmallScreen, setSmallScreen] = useState(false);
+	const [selectedGenre, setSelectedGenre] = useState("");
+
+	const handleGenreSelect = (genreId) => {
+		setGenre(genreId);
+		setSelectedGenre(genreId);
+	};
 
 	useEffect(function () {
 		async function fetchGenres() {
@@ -84,7 +77,12 @@ function SideBar({ setGenre }) {
 					<p className="p__subtopic">Genre</p>
 					<div className="app__sidebar-links">
 						{genres.map((genre) => (
-							<GenreBox genre={genre} setGenre={setGenre} />
+							<GenreBox
+								key={genre.id}
+								genre={genre}
+								isSelected={selectedGenre === genre.id}
+								onSelect={handleGenreSelect}
+							/>
 						))}
 					</div>
 				</div>

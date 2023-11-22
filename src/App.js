@@ -134,15 +134,32 @@ export default function App() {
 		setIsDetailOpen((isDetailOpen) => !isDetailOpen);
 	}
 
-	function openDetail(imdbID) {
-		setDetailId((detailId) => imdbID);
+	function handleOverlayclick(e) {
+		if (e.target === e.currentTarget) {
+			closeDetail();
+		}
+	}
+
+	function openDetail(id) {
 		setIsDetailOpen((isDetailOpen) => !isDetailOpen);
+		setDetailId((detailId) => id);
 	}
 
 	return (
 		<>
 			<Header movies={movies} query={query} onSearch={onSearch} />
 			<SideBar />
+			{isDetailOpen && (
+				<MovieDetail
+					movie={movie}
+					genres={genres}
+					isDetailOpen={isDetailOpen}
+					closeDetail={closeDetail}
+					isDetailLoading={isDetailLoading}
+					handleOverlayclick={handleOverlayclick}
+				/>
+			)}
+
 			{query ? (
 				<>
 					<Searched
@@ -152,15 +169,6 @@ export default function App() {
 						error={error}
 						setQuery={setQuery}
 					/>
-					{isDetailOpen && (
-						<MovieDetail
-							movie={movie}
-							genres={genres}
-							isDetailOpen={isDetailOpen}
-							closeDetail={closeDetail}
-							isDetailLoading={isDetailLoading}
-						/>
-					)}
 				</>
 			) : (
 				<Home openDetail={openDetail} />

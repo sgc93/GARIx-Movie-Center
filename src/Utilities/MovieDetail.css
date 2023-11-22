@@ -1,3 +1,17 @@
+.app__detail-overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	backdrop-filter: blur(1px);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+
 .detail__box {
 	position: absolute;
 	top: 50%;
@@ -10,7 +24,7 @@
 
 	background-color: var(--color-background-500);
 	border-radius: 0.7rem;
-	box-shadow: 0rem 0rem 2rem 1rem #817e76;
+	border: 0.3px solid var(--color-primary-light);
 	display: flex;
 	gap: 2.4rem;
 }

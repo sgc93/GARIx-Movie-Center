@@ -46,7 +46,6 @@ function MovieDetail({
 				);
 				const data = await response.json();
 				setImdbData(data);
-				console.log(data);
 			}
 
 			fetchDetail();

@@ -20,7 +20,7 @@ export default function App() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState("");
 
-	const [genre, setGenre] = useState("war");
+	const [genre, setGenre] = useState("");
 
 	useEffect(
 		function () {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { TbCategoryFilled } from "react-icons/tb";
-import genres from "../../constants/Genre";
+import CategoryData from "../../constants/Genre";
 import "./Sidebar.css";
 
 function GenreBox({ genre, isSelected, onSelect }) {
@@ -20,13 +20,37 @@ function GenreBox({ genre, isSelected, onSelect }) {
 	);
 }
 
-function SideBar({ setGenre }) {
+function LanguageBox({ language, isSelected, onSelect }) {
+	const handleClick = () => {
+		onSelect(language.code);
+	};
+
+	return (
+		<a
+			href={`#${language.name}`}
+			className={isSelected ? "selected" : "link"}
+			onClick={handleClick}
+		>
+			{language.name}
+		</a>
+	);
+}
+
+function SideBar({ setGenre, setLanguage, setTag }) {
 	const [isSmallScreen, setSmallScreen] = useState(false);
 	const [selectedGenre, setSelectedGenre] = useState("");
+	const [selectedLanguage, setSelectedLanguage] = useState("");
 
 	const handleGenreSelect = (genreId) => {
+		setTag("g");
 		setGenre(genreId);
 		setSelectedGenre(genreId);
+	};
+
+	const handleLanguageSelect = (langCode) => {
+		setTag("l");
+		setLanguage(langCode);
+		setSelectedLanguage(langCode);
 	};
 
 	return (
@@ -63,7 +87,7 @@ function SideBar({ setGenre }) {
 				<div className="app__sidebar-genre">
 					<p className="p__subtopic">Genre</p>
 					<div className="app__sidebar-links">
-						{genres.map((genre) => (
+						{CategoryData[0].map((genre) => (
 							<GenreBox
 								key={genre.id}
 								genre={genre}
@@ -76,15 +100,14 @@ function SideBar({ setGenre }) {
 				<div className="app__sidebar-language">
 					<p className="p__subtopic">Language</p>
 					<div className="app__sidebar-links">
-						<a href="#English" className="link">
-							English
-						</a>
-						<a href="#Hindi" className="link">
-							Hindi
-						</a>
-						<a href="#Baghi" className="link">
-							Baghi
-						</a>
+						{CategoryData[1].map((language) => (
+							<LanguageBox
+								key={language.code}
+								language={language}
+								isSelected={selectedLanguage === language.id}
+								onSelect={handleLanguageSelect}
+							/>
+						))}
 					</div>
 				</div>
 				<div className="app__sidebar-divider">_________________________</div>

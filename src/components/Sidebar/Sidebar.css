@@ -74,6 +74,18 @@
 	color: var(--color-text);
 }
 
+.selected {
+	color: var(--color-red);
+
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	margin: 1rem 0 0 1.5rem;
+
+	text-decoration: none;
+	font-size: 1.3rem;
+}
+
 .app__sidebar-divider {
 	margin: 2rem;
 }

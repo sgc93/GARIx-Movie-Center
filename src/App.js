@@ -21,6 +21,8 @@ export default function App() {
 	const [error, setError] = useState("");
 
 	const [genre, setGenre] = useState("");
+	const [language, setLanguage] = useState("");
+	const [tag, setTag] = useState("");
 
 	useEffect(
 		function () {
@@ -107,7 +109,7 @@ export default function App() {
 	return (
 		<>
 			<Header movies={movies} query={query} onSearch={onSearch} />
-			<SideBar setGenre={setGenre} />
+			<SideBar setGenre={setGenre} setLanguage={setLanguage} setTag={setTag} />
 			{isDetailOpen && (
 				<MovieDetail
 					movie={movie}
@@ -130,8 +132,15 @@ export default function App() {
 						setQuery={setQuery}
 					/>
 				</>
-			) : genre ? (
-				<Category genre={genre} setGenre={setGenre} openDetail={openDetail} />
+			) : genre || language ? (
+				<Category
+					genre={genre}
+					setGenre={setGenre}
+					language={language}
+					setLanguage={setLanguage}
+					tag={tag}
+					openDetail={openDetail}
+				/>
 			) : (
 				<Home openDetail={openDetail} />
 			)}

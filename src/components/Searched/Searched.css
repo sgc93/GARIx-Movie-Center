@@ -48,10 +48,8 @@
 
 .loader,
 .error {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	margin: 20% 40%;
+	text-align: center;
 }
 
 .loader h1 {
@@ -75,7 +73,7 @@
 .error p {
 	font-size: 2rem;
 	font-weight: 600;
-	color: var(--color-red-light);
+	color: rgb(69, 69, 214);
 	text-transform: capitalize;
 }
 

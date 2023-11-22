@@ -36,11 +36,10 @@ function LanguageBox({ language, isSelected, onSelect }) {
 	);
 }
 
-function SideBar({ setGenre, setLanguage, setTag }) {
+function SideBar({ setGenre, setLanguage, setTag, lg, setLG }) {
 	const [isSmallScreen, setSmallScreen] = useState(false);
 	const [selectedGenre, setSelectedGenre] = useState("");
 	const [selectedLanguage, setSelectedLanguage] = useState("");
-	const [lg, setLG] = useState("");
 
 	const handleGenreSelect = (genreId) => {
 		setLG("g");

@@ -6,7 +6,15 @@ import CategoryData from "../../constants/Genre";
 
 const KEY = "988ba0f866b64552dd0b251b74c2b78d";
 
-function Category({ genre, setGenre, language, setLanguage, tag, openDetail }) {
+function Category({
+	genre,
+	setGenre,
+	language,
+	setLanguage,
+	tag,
+	setLG,
+	openDetail,
+}) {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState("");
 	const [movies, setMovies] = useState([]);
@@ -73,8 +81,6 @@ function Category({ genre, setGenre, language, setLanguage, tag, openDetail }) {
 		[language]
 	);
 
-	function onClose() {}
-
 	return (
 		<>
 			<div className={"main app__scrollbar-v"}>
@@ -92,6 +98,7 @@ function Category({ genre, setGenre, language, setLanguage, tag, openDetail }) {
 						onClick={() => {
 							setGenre((genre) => "");
 							setLanguage((lang) => "");
+							setLG("");
 						}}
 					>
 						&times;

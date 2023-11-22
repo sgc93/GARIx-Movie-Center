@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Error from "../../Utilities/Error";
 import Loading from "../../Utilities/Loading";
 import MovieCard from "../../Utilities/MovieCard";
+import genres from "../../constants/Genre";
 
 const KEY = "988ba0f866b64552dd0b251b74c2b78d";
 
@@ -45,7 +46,7 @@ function Category({ genre, setGenre, openDetail }) {
 		<>
 			<div className={"main app__scrollbar-v"}>
 				<p className="header">
-					<span>{genre}</span> Movies
+					<span>{genres.find((g) => g.id === genre).name}</span> Movies
 				</p>
 				<div className="box">
 					<button

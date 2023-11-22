@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { TbCategoryFilled } from "react-icons/tb";
 import genres from "../../constants/Genre";
 import "./Sidebar.css";
-
-const KEY = "988ba0f866b64552dd0b251b74c2b78d";
 
 function GenreBox({ genre, isSelected, onSelect }) {
 	const handleClick = () => {
@@ -31,17 +29,6 @@ function SideBar({ setGenre }) {
 		setSelectedGenre(genreId);
 	};
 
-	useEffect(function () {
-		async function fetchGenres() {
-			const res = await fetch(
-				`https://api.themoviedb.org/3/genre/tv/list?api_key=${KEY}`
-			);
-			const data = await res.json();
-			console.log(data);
-		}
-
-		fetchGenres();
-	});
 	return (
 		<>
 			<div className="app__sidebar-icon hover">

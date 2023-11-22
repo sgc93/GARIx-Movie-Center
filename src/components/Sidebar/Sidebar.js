@@ -40,14 +40,17 @@ function SideBar({ setGenre, setLanguage, setTag }) {
 	const [isSmallScreen, setSmallScreen] = useState(false);
 	const [selectedGenre, setSelectedGenre] = useState("");
 	const [selectedLanguage, setSelectedLanguage] = useState("");
+	const [lg, setLG] = useState("");
 
 	const handleGenreSelect = (genreId) => {
+		setLG("g");
 		setTag("g");
 		setGenre(genreId);
 		setSelectedGenre(genreId);
 	};
 
 	const handleLanguageSelect = (langCode) => {
+		setLG("l");
 		setTag("l");
 		setLanguage(langCode);
 		setSelectedLanguage(langCode);
@@ -91,7 +94,7 @@ function SideBar({ setGenre, setLanguage, setTag }) {
 							<GenreBox
 								key={genre.id}
 								genre={genre}
-								isSelected={selectedGenre === genre.id}
+								isSelected={selectedGenre === genre.id && lg === "g"}
 								onSelect={handleGenreSelect}
 							/>
 						))}
@@ -104,7 +107,7 @@ function SideBar({ setGenre, setLanguage, setTag }) {
 							<LanguageBox
 								key={language.code}
 								language={language}
-								isSelected={selectedLanguage === language.id}
+								isSelected={selectedLanguage === language.code && lg === "l"}
 								onSelect={handleLanguageSelect}
 							/>
 						))}

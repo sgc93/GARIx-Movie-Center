@@ -49,12 +49,12 @@ const tempMovieData = [
 	},
 ];
 
-const KEY = "eaf312c3";
-// const Key = "988ba0f866b64552dd0b251b74c2b78d";
+const KEY = "988ba0f866b64552dd0b251b74c2b78d";
 
 export default function App() {
 	const [detailId, setDetailId] = useState("");
 	const [movie, setMovie] = useState({});
+	const { genres } = movie;
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 	const [movies, setMovies] = useState([]);
 	const [query, setQuery] = useState("");
@@ -70,7 +70,7 @@ export default function App() {
 			async function fetchMovies() {
 				try {
 					const response = await fetch(
-						`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+						`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${query}`,
 						{ signal: controller.signal }
 					);
 					if (!response.ok) throw new Error("🛜You Have Lost Your Connection!");
@@ -80,7 +80,7 @@ export default function App() {
 					} else if (response.ok) {
 						setError((error) => "");
 					}
-					setMovies((movies) => data.Search);
+					setMovies((movies) => data.results);
 					setError("");
 				} catch (err) {
 					if (err.name !== "AbortError") {
@@ -113,10 +113,11 @@ export default function App() {
 					return;
 				}
 				const response = await fetch(
-					`http://www.omdbapi.com/?apikey=${KEY}&i=${detailId}`
+					`https://api.themoviedb.org/3/movie/${detailId}?api_key=${KEY}`
 				);
 				const data = await response.json();
 				setMovie((movie) => data);
+				console.log(data);
 				setIsDetailLoading(false);
 			}
 
@@ -149,10 +150,12 @@ export default function App() {
 						openDetail={openDetail}
 						isLoading={isLoading}
 						error={error}
+						setQuery={setQuery}
 					/>
 					{isDetailOpen && (
 						<MovieDetail
 							movie={movie}
+							genres={genres}
 							isDetailOpen={isDetailOpen}
 							closeDetail={closeDetail}
 							isDetailLoading={isDetailLoading}
@@ -160,7 +163,7 @@ export default function App() {
 					)}
 				</>
 			) : (
-				<Home movies={tempMovieData} />
+				<Home openDetail={openDetail} />
 			)}
 		</>
 	);

@@ -42,12 +42,7 @@ function Trending({ movies, openDetail }) {
 				<>
 					<ul className="app__trending-list list">
 						{popular.map((movie) => (
-							<MovieCard
-								movie={movie}
-								openDetail={openDetail}
-								key={movie.id}
-								tag={0}
-							/>
+							<MovieCard movie={movie} openDetail={openDetail} key={movie.id} />
 						))}
 					</ul>
 				</>

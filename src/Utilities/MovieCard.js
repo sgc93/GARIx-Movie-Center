@@ -1,12 +1,4 @@
-function MovieCard({ movie, openDetail, tag }) {
-	return tag === 0 ? (
-		<MovieCard0 movie={movie} openDetail={openDetail} />
-	) : (
-		<MovieCard0 movie={movie} openDetail={openDetail} />
-	);
-}
-
-function MovieCard0({ movie, openDetail }) {
+function MovieCard({ movie, openDetail }) {
 	return (
 		<li
 			key={movie.id}

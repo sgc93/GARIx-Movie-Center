@@ -8,6 +8,19 @@
 	padding: 1rem;
 }
 
+.header {
+	margin: 1.5rem 1rem;
+	font-size: 3rem;
+	font-weight: 600;
+}
+
+.header span {
+	text-transform: capitalize;
+	color: var(--color-red);
+	font-weight: 700;
+	font-size: 3.5rem;
+}
+
 .box {
 	/* background-color: var(--color-background-500); */
 	border-radius: 0.7rem;

@@ -73,6 +73,8 @@ function Category({ genre, setGenre, language, setLanguage, tag, openDetail }) {
 		[language]
 	);
 
+	function onClose() {}
+
 	return (
 		<>
 			<div className={"main app__scrollbar-v"}>
@@ -87,7 +89,10 @@ function Category({ genre, setGenre, language, setLanguage, tag, openDetail }) {
 				<div className="box">
 					<button
 						className={"btn-toggle hover"}
-						onClick={() => setGenre((genre) => "")}
+						onClick={() => {
+							setGenre((genre) => "");
+							setLanguage((lang) => "");
+						}}
 					>
 						&times;
 					</button>

@@ -14,10 +14,19 @@ const genres = [
 	{ id: 9648, name: "Mystery" },
 	{ id: 10749, name: "Romance" },
 	{ id: 878, name: "Science Fiction" },
-	{ id: 10770, name: "Tv Movie" },
+	{ id: 10770, name: "Tv" },
 	{ id: 53, name: "Thriller" },
 	{ id: 10752, name: "War" },
 	{ id: 37, name: "Western" },
 ];
 
-export default genres;
+const languages = [
+	{ code: "en", name: "English" },
+	{ code: "es", name: "Spanish" },
+	{ code: "hi", name: "Hindi" },
+	{ code: "fr", name: "French" },
+];
+
+const CategoryData = [genres, languages];
+
+export default CategoryData;

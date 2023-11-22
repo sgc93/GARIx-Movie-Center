@@ -167,6 +167,7 @@ export default function App() {
 						openDetail={openDetail}
 						isLoading={isLoading}
 						error={error}
+						query={query}
 						setQuery={setQuery}
 					/>
 				</>

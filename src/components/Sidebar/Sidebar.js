@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { TbCategoryFilled } from "react-icons/tb";
+import logo from "../../assets/logo.jpg";
 import CategoryData from "../../constants/Genre";
 import "./Sidebar.css";
 
@@ -86,6 +87,9 @@ function SideBar({ setGenre, setLanguage, setTag, lg, setLG }) {
 						: "app__sidebar app__scrollbar-v"
 				}
 			>
+				<div className={isSmallScreen ? "app__sidebar-logo hover" : "hidden"}>
+					<img src={logo} alt="logo" />
+				</div>
 				<div className="app__sidebar-genre">
 					<p className="p__subtopic">Genre</p>
 					<div className="app__sidebar-links">

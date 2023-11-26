@@ -7,9 +7,11 @@ function Home({ openDetail }) {
 	return (
 		<div className="app__home app__scrollbar-v">
 			<Playing />
-			<Trending openDetail={openDetail} />
-			<Top openDetail={openDetail} />
-			<Upcoming openDetail={openDetail} />
+			<div className="app__home-list">
+				<Trending openDetail={openDetail} />
+				<Top openDetail={openDetail} />
+				<Upcoming openDetail={openDetail} />
+			</div>
 		</div>
 	);
 }

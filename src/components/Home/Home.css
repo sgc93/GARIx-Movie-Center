@@ -201,6 +201,10 @@ button {
 		margin: 0rem;
 	}
 
+	.app__home-list {
+		padding-left: 2rem;
+	}
+
 	.app__playing-bg {
 		height: 450px;
 	}
@@ -249,6 +253,11 @@ button {
 }
 
 @media screen and (max-width: 900px) {
+	.app__home {
+		display: flex;
+		flex-direction: column;
+		gap: 16rem;
+	}
 	.app__playing-about {
 		left: 3rem;
 	}

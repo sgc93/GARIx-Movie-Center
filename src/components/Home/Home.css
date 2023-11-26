@@ -243,3 +243,13 @@ button {
 		border-radius: 1rem;
 	}
 }
+
+@media screen and (max-width: 900px) {
+	.app__playing-about {
+		left: 3rem;
+	}
+	.app__playing-movies {
+		top: 65vh;
+		width: 92%;
+	}
+}

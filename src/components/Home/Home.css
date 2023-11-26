@@ -65,6 +65,9 @@
 }
 
 .plot {
+	display: flex;
+	align-items: center;
+
 	width: 500px;
 	height: 150px;
 	font-size: 2rem;
@@ -251,5 +254,33 @@ button {
 	.app__playing-movies {
 		top: 65vh;
 		width: 92%;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.app__playing-bg {
+		height: 450px;
+	}
+	.app__playing-about {
+		height: 42vh;
+	}
+
+	.about__title {
+		font-size: 2rem;
+	}
+
+	.genre {
+		font-size: 1.5rem;
+	}
+
+	.plot {
+		width: 90%;
+		height: 130px;
+		font-size: 1.5rem;
+	}
+
+	.app__playing-movies {
+		top: 48vh;
+		width: 98%;
 	}
 }

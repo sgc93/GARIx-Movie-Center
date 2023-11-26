@@ -4,18 +4,18 @@ import { IoSearchSharp } from "react-icons/io5";
 import logo from "../../assets/logo.jpg";
 import "./Header.css";
 
-function Logo({ isClosed }) {
+function Logo({ isFocused }) {
 	return (
-		<div className={isClosed ? "hide" : "logo"}>
+		<div className={isFocused ? "hide" : "logo"}>
 			<img src={logo} alt="GARIx" />
 		</div>
 	);
 }
 
-function SearchBox({ isClosed, query, onSearch }) {
+function SearchBox({ isFocused, query, onSearch }) {
 	return (
 		<input
-			className={isClosed ? "search__box-two" : "search__box"}
+			className={isFocused ? "search__box-two" : "search__box"}
 			type="text"
 			placeholder="Search movies..."
 			value={query}
@@ -24,37 +24,29 @@ function SearchBox({ isClosed, query, onSearch }) {
 	);
 }
 
-function CloseIcon({ isClosed, setIsClosed }) {
+function CloseIcon({ isFocused, setIsFocused }) {
 	return (
-		<div className={isClosed ? "close__icon" : "hide"}>
+		<div className={isFocused ? "close__icon" : "hide"}>
 			<FaTimes
 				className="close__icon-svg"
 				onClick={() => {
-					setIsClosed((isClosed) => false);
+					setIsFocused((isFocused) => false);
 				}}
 			/>
 		</div>
 	);
 }
 
-function SearchIcon({ isClosed, setIsClosed }) {
+function SearchIcon({ isFocused, setIsFocused }) {
 	return (
-		<div className={isClosed ? "hide" : "search__icon"}>
+		<div className={isFocused ? "hide" : "search__icon"}>
 			<IoSearchSharp
 				className="search__icon-svg"
 				onClick={() => {
-					setIsClosed((isClosed) => true);
+					setIsFocused((isFocused) => true);
 				}}
 			/>
 		</div>
-	);
-}
-
-function Result({ movies }) {
-	return (
-		<p className="num-results">
-			Found <strong>{movies.length}</strong> results
-		</p>
 	);
 }
 
@@ -67,16 +59,15 @@ function Subscribe() {
 	);
 }
 
-function Header({ movies, query, onSearch }) {
-	const [isClosed, setIsClosed] = useState(false);
+function Header({ query, onSearch }) {
+	const [isFocused, setIsFocused] = useState(false);
 
 	return (
 		<nav className="nav-bar">
-			<Logo isClosed={isClosed} />
-			<SearchBox isClosed={isClosed} onSearch={onSearch} query={query} />
-			<CloseIcon isClosed={isClosed} setIsClosed={setIsClosed} />
-			<SearchIcon isClosed={isClosed} setIsClosed={setIsClosed} />
-			{/* <Result movies={movies} /> */}
+			<Logo isFocused={isFocused} />
+			<SearchBox isFocused={isFocused} onSearch={onSearch} query={query} />
+			<CloseIcon isFocused={isFocused} setIsFocused={setIsFocused} />
+			<SearchIcon isFocused={isFocused} setIsFocused={setIsFocused} />
 			<Subscribe />
 		</nav>
 	);

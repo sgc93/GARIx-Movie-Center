@@ -21,7 +21,7 @@
 	align-items: center;
 	justify-content: center;
 
-	padding-top: 8rem;
+	padding-top: 30rem;
 
 	z-index: 998;
 }
@@ -129,6 +129,11 @@
 }
 
 @media screen and (max-width: 1050px) {
+	.app__sidebar-links .link {
+		text-decoration: none;
+		color: var(--color-text);
+		font-size: 1.7rem;
+	}
 	.app__sidebar {
 		display: none;
 	}

@@ -22,7 +22,6 @@
 }
 
 .box {
-	/* background-color: var(--color-background-500); */
 	border-radius: 0.7rem;
 	position: relative;
 }
@@ -83,8 +82,44 @@
 	align-items: center;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-	gap: 5rem;
+	gap: 3rem;
 
 	list-style: none;
 	padding: 1.5rem;
+}
+
+@media screen and (max-width: 1450px) {
+	.result__list {
+		gap: 1rem;
+	}
+}
+
+@media screen and (max-width: 1250px) {
+	.result__list {
+		gap: 1rem;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.main {
+		left: 0;
+		width: 100vw;
+	}
+
+	.main .header {
+		margin: 0.5rem 1rem;
+		font-size: 2.5rem;
+	}
+
+	.header span {
+		font-size: 3rem;
+	}
+
+	.loader h1 {
+		font-size: 2.3rem;
+	}
+
+	.result__list {
+		gap: 2rem;
+	}
 }

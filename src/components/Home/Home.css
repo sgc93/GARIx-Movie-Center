@@ -184,7 +184,7 @@ button {
 
 @media screen and (max-width: 1300px) {
 	.app__playing-about {
-		top: 2rem;
+		top: 4rem;
 		width: 100%;
 	}
 
@@ -201,13 +201,14 @@ button {
 		margin: 0rem;
 	}
 
-	.app__home::-webkit-scrollbar {
-		display: none;
+	.app__playing-bg {
+		height: 450px;
 	}
 
 	.app__playing-about {
-		top: 2rem;
+		left: 5rem;
 		width: 100%;
+		height: 310px;
 	}
 
 	.about__title {
@@ -236,8 +237,8 @@ button {
 	}
 
 	.app__playing-movies {
-		top: 52vh;
-		width: 75%;
+		top: 270px;
+		width: 60%;
 	}
 
 	.Playing__list li {
@@ -252,16 +253,15 @@ button {
 		left: 3rem;
 	}
 	.app__playing-movies {
-		top: 65vh;
-		width: 92%;
+		top: 390px;
+		width: 95%;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	.app__playing-bg {
-		height: 450px;
-	}
 	.app__playing-about {
+		top: 2rem;
+		left: 2rem;
 		height: 42vh;
 	}
 
@@ -280,7 +280,12 @@ button {
 	}
 
 	.app__playing-movies {
-		top: 48vh;
-		width: 98%;
+		top: 390px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.release__rate {
+		gap: 1.2rem;
 	}
 }

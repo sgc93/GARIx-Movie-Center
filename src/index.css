@@ -115,3 +115,44 @@ body {
 .show {
 	display: flex;
 }
+
+@media screen and (max-width: 1080px) {
+	.list li {
+		width: 28vw;
+	}
+
+	.list__movie-data h3 {
+		font-size: 1.6rem;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.list li {
+		width: 37vw;
+
+		font-size: 1.2rem;
+	}
+
+	.list__movie-data h3 {
+		font-size: 1.6rem;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.list li {
+		width: 40vw;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.list li {
+		width: 100vw;
+		height: 500px;
+
+		font-size: 1.7rem;
+	}
+
+	.list__movie-data h3 {
+		font-size: 2rem;
+	}
+}

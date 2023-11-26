@@ -5,9 +5,17 @@ import logo from "../../assets/logo.jpg";
 import CategoryData from "../../constants/Genre";
 import "./Sidebar.css";
 
-function GenreBox({ genre, isSelected, onSelect }) {
+function GenreBox({
+	genre,
+	isSelected,
+	onSelect,
+	setIsSelected,
+	setSmallScreen,
+}) {
 	const handleClick = () => {
 		onSelect(genre.id);
+		setIsSelected(true);
+		setSmallScreen(false);
 	};
 
 	return (
@@ -21,9 +29,17 @@ function GenreBox({ genre, isSelected, onSelect }) {
 	);
 }
 
-function LanguageBox({ language, isSelected, onSelect }) {
+function LanguageBox({
+	language,
+	isSelected,
+	onSelect,
+	setIsSelected,
+	setSmallScreen,
+}) {
 	const handleClick = () => {
 		onSelect(language.code);
+		setIsSelected(true);
+		setSmallScreen(false);
 	};
 
 	return (
@@ -38,6 +54,7 @@ function LanguageBox({ language, isSelected, onSelect }) {
 }
 
 function SideBar({ setGenre, setLanguage, setTag, lg, setLG }) {
+	const [isSelected, setIsSelected] = useState(false);
 	const [isSmallScreen, setSmallScreen] = useState(false);
 	const [selectedGenre, setSelectedGenre] = useState("");
 	const [selectedLanguage, setSelectedLanguage] = useState("");
@@ -67,6 +84,7 @@ function SideBar({ setGenre, setLanguage, setTag, lg, setLG }) {
 					}
 					onClick={() => {
 						setSmallScreen((isSmallScreen) => !isSmallScreen);
+						setIsSelected(false);
 					}}
 				/>
 				<FaTimes
@@ -82,7 +100,7 @@ function SideBar({ setGenre, setLanguage, setTag, lg, setLG }) {
 			</div>
 			<div
 				className={
-					isSmallScreen
+					isSmallScreen && !isSelected
 						? "app__small-sidebar app__scrollbar-v"
 						: "app__sidebar app__scrollbar-v"
 				}
@@ -99,6 +117,8 @@ function SideBar({ setGenre, setLanguage, setTag, lg, setLG }) {
 								genre={genre}
 								isSelected={selectedGenre === genre.id && lg === "g"}
 								onSelect={handleGenreSelect}
+								setIsSelected={setIsSelected}
+								setSmallScreen={setSmallScreen}
 							/>
 						))}
 					</div>
@@ -112,6 +132,8 @@ function SideBar({ setGenre, setLanguage, setTag, lg, setLG }) {
 								language={language}
 								isSelected={selectedLanguage === language.code && lg === "l"}
 								onSelect={handleLanguageSelect}
+								setIsSelected={setIsSelected}
+								setSmallScreen={setSmallScreen}
 							/>
 						))}
 					</div>

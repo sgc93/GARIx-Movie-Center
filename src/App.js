@@ -37,7 +37,6 @@ export default function App() {
 					);
 					if (!response.ok) throw new Error("🛜You Have Lost Your Connection!");
 					const data = await response.json();
-					console.log(data);
 					if (data.total_results === 0) {
 						throw new Error("⛔Movie Not Found!");
 					} else if (response.ok) {

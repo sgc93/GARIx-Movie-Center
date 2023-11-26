@@ -243,3 +243,27 @@
 		width: 570px;
 	}
 }
+
+@media screen and (max-width: 600px) {
+	.detail__box {
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.title {
+		font-size: 3rem;
+		overflow: auto;
+	}
+
+	.title::-webkit-scrollbar {
+		display: none;
+	}
+
+	.rate__release {
+		gap: 7rem;
+	}
+
+	.story {
+		width: 95vw;
+	}
+}

@@ -18,6 +18,7 @@ Welcome to the Movie Search and Detail Web App! This web app allows users to sea
 [GARIx Movie Center]()
 
 ## ScreenShots
+![GARIx](https://github.com/sgc93/GARIx-Movie-Center/blob/main/public/assets/garix.png)
 
 ## Technologies Used
 

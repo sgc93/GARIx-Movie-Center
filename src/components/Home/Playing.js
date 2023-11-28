@@ -85,7 +85,6 @@ function Playing() {
 									<p className="release__rate">
 										<span>📆{selected.release_date}</span>
 										<span>⏱️{selected.runtime} min</span>
-										<span>⭐7.7</span>
 									</p>
 									<div className="genre">
 										{genres &&

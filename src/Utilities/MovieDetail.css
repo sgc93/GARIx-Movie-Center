@@ -247,7 +247,7 @@
 @media screen and (max-width: 600px) {
 	.detail__box {
 		width: 100vw;
-		height: 100vh;
+		height: 80vh;
 	}
 
 	.title {

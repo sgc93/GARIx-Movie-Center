@@ -73,7 +73,7 @@ function MovieDetail({
 							<h3 className="title">{movie.title}</h3>
 							<p className="rate__release">
 								<span className="release">{`📅 ${movie.release_date}`}</span>
-								<span className="duration">{`🍿 ${imdbData.Runtime}`}</span>
+								<span className="duration">{`🍿 ${movie.runtime} min`}</span>
 								<span className="rating"> {`⭐${imdbData.imdbRating}`}</span>
 							</p>
 							<p className="story">{movie.overview}</p>

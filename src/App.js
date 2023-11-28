@@ -79,7 +79,6 @@ export default function App() {
 				);
 				const data = await response.json();
 				setMovie((movie) => data);
-				console.log(data);
 				setIsDetailLoading(false);
 			}
 
